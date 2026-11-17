@@ -1,11 +1,20 @@
 import { ArrowDown, Download, Github, Linkedin } from "lucide-react";
 import { profile } from "@/data/profile";
 import { withBasePath } from "@/lib/paths";
+import { HeroBackdrop } from "@/components/sections/HeroBackdrop";
 
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div className="pointer-events-none absolute inset-0 bg-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
+      {/* 3D network backdrop — decorative only. Dimmed on narrow screens where it sits behind
+          the text; the mask fades the particle ring out instead of clipping at the section edge. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-60 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_85%,transparent)] lg:opacity-100"
+      >
+        <HeroBackdrop />
+      </div>
 
       <div className="section-shell relative grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="animate-fadeUp">
